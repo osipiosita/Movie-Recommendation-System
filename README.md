@@ -6,7 +6,7 @@ https://www.kaggle.com/code/rounakbanik/movie-recommender-systems/input?select=m
 https://www.kaggle.com/code/rounakbanik/movie-recommender-systems/input?select=credits.csv
 https://www.kaggle.com/code/rounakbanik/movie-recommender-systems/input?select=links_small.csv
 
-#Obtain an API key from https://www.themoviedb.org
+#Obtain an API key from https://www.themoviedb.org. This is used to fetch the posters for the recommended movies.
 ## Setup and Installation
 
 ### Prerequisites
@@ -17,12 +17,76 @@ https://www.kaggle.com/code/rounakbanik/movie-recommender-systems/input?select=l
 - requests
 - pickle
 
-*Add the csv files and the Movie_Recommender.ipynb to one folder called Movie Recommender System.
+**Features**
+- Select a movie from a dropdown list to get recommendations.
+- Display movie posters alongside the recommended titles.
+- Use of cosine similarity to find similar movies based on movie metadata.
+- User-friendly interface with Streamlit.
+- Installation
 
-*Run the ipynb file. You will see two pkl files named similarity.pkl and movies.pkl in the folder.
+**To run this project locally, follow these steps:**
 
-*Create an app.py file and read both pkl files.
+- Add the csv files and the Movie_Recommender.ipynb to one folder called Movie Recommender System.
 
-*Install streamlit in the terminal using pip install streamlit.
+- Run the ipynb file. You will see two pkl files named similarity.pkl and movies.pkl in the folder.
 
-*Run the app.py using the command streamlit run app.py.
+- Create an app.py file and read both pkl files.
+
+- Install streamlit in the terminal using pip install streamlit.
+
+-un the app.py using the command streamlit run app.py.
+
+
+**Usage**
+- Open the Streamlit app in your browser.
+- Select a movie from the dropdown list.
+- Click the "Show Recommendations" button.
+- View the recommended movies and their posters.
+  
+**Data**
+ The project uses movie metadata from various CSV files. The data preprocessing steps include:
+
+Loading and merging datasets (movies metadata, credits, keywords, links).
+Cleaning the data by dropping unnecessary columns and handling missing values.
+Creating a combined 'tags' column from the 'overview', 'genres', 'cast', and 'keywords' columns.
+Using TF-IDF Vectorizer to convert the 'tags' text into numerical vectors.
+Calculating cosine similarity between movie vectors.
+Saving the processed data and similarity matrix into pickle files.
+To generate the movies.pkl and similarity.pkl files, follow these steps:
+
+Load the necessary CSV files into pandas DataFrames.
+Preprocess the data as described in the script.
+Save the processed DataFrame and similarity matrix into pickle files.
+How It Works
+Code Explanation
+Data Preprocessing:
+
+Load movie metadata, credits, keywords, and links datasets.
+Clean the data by dropping unnecessary columns and rows with inconsistent data.
+Merge datasets on the 'id' column.
+Create a 'tags' column by combining relevant metadata.
+Feature Extraction:
+
+Use TF-IDF Vectorizer to convert the 'tags' text into numerical vectors.
+Calculate cosine similarity between movie vectors.
+Recommendation Function:
+
+Define a function fetch_recommendations that takes a movie title as input.
+Find the index of the selected movie in the DataFrame.
+Compute similarity scores and get the top 5 most similar movies.
+Fetch the poster URLs for the recommended movies.
+Streamlit App:
+
+Load the processed DataFrame and similarity matrix from pickle files.
+Create a Streamlit app with a dropdown for movie selection and a button to show recommendations.
+Display the recommended movies and their posters.
+Future Work
+Improve the recommendation algorithm by incorporating user ratings and reviews.
+Add more features to the Streamlit app, such as filtering recommendations by genre or year.
+Implement a user login system to save and personalize recommendations.
+Acknowledgements
+The movie metadata is sourced from The Movie Database (TMDb).
+Special thanks to the open-source community for the various Python libraries used in this project.
+
+
+*
