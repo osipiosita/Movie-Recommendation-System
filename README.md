@@ -22,7 +22,7 @@ https://www.kaggle.com/code/rounakbanik/movie-recommender-systems/input?select=l
 - Display movie posters alongside the recommended titles.
 - Use of cosine similarity to find similar movies based on movie metadata.
 - User-friendly interface with Streamlit.
-- Installation
+  
 
 **To run this project locally, follow these steps:**
 
