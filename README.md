@@ -89,6 +89,7 @@ To generate the `movies.pkl` and `similarity.pkl` files, follow these steps:
 - Create a Streamlit app with a dropdown for movie selection and a button to show recommendations.
 - Display the recommended movies and their posters.
 
+**Link to recommendation system demo**: https://youtu.be/ecCM9qRU6dM
 
 
 
